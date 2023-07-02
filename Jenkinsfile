@@ -47,7 +47,10 @@ pipeline {
 // function for building the docker image
 def buildDockerImage() {
     echo "Building Docker image..."
-    sh 'ls'
+    // build docker image
+    sh 'docker build -t kristelj/sample-book-app:latest .'
+    // push image to Docker Hub
+    sh 'docker push kristelj/sample-book-app:latest'
 }
 
 // function for unit tests
