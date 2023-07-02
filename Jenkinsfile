@@ -4,43 +4,57 @@ pipeline {
         stage('build-docker-image') {
             steps {
                 scripts {
-                    docker-build()
+                    buildDockerImage()
                 }
             }
         }
         stage('unit-tests') {
             steps {
-                echo 'Running unit tests for node application in Docker container...'
+                scripts {
+                    executeUnitTests()
+                }
             }
         }
         stage('deploy-dev') {
             steps {
-                echo 'Deployment triggered on DEV environment...'
+                scripts {
+                    deploy("DEV")
+                }
             }
         }
         stage('api-integration-tests-dev') {
             steps {
-                echo 'API integration tests triggered on DEV environment'
+                scripts {
+                    executeAPITests("DEV")
+                }
             }
         }
         stage('deploy-stg') {
             steps {
-                echo 'Deployment triggered on STG environment...'
+                scripts {
+                    deploy("STG")
+                }
             }
         }
         stage('api-integration-tests-stg') {
             steps {
-                echo 'API integration tests triggered on STG environment'
+                scripts {
+                    executeAPITests("STG")
+                }
             }
         }
         stage('deploy-prd') {
             steps {
-                echo 'Deployment triggered on PRD environment...'
+                scripts {
+                    deploy("PRD")
+                }
             }
         }
         stage('api-integration-tests-prd') {
             steps {
-                echo 'API integration tests triggered on PRD environment'
+                scripts {
+                    executeAPITests("PRD")
+                }
             }
         }
        
@@ -49,9 +63,21 @@ pipeline {
 }
 
 // function for building the docker image
-def docker-build() {
-    echo 'Building Docker image...'
+def buildDockerImage() {
+    echo "Building Docker image..."
 }
+
+// function for unit tests
+def executeUnitTests() {
+    echo "Running unit tests for node application in Docker container..."
+}
+
 // function to optimize deployment
+def deploy(String env) {
+    echo "Deployment triggered on ${env} environment..."
+}
 
 // function to optimize api testing
+def executeAPITests(String env) {
+    echo "API integration tests triggered on ${env} environment"
+}
