@@ -3,58 +3,42 @@ pipeline {
     stages {
         stage('build-docker-image') {
             steps {
-                script {
-                    buildDockerImage()
-                }
+                buildDockerImage()
             }
         }
         stage('unit-tests') {
             steps {
-                script {
-                    executeUnitTests()
-                }
+                executeUnitTests()
             }
         }
         stage('deploy-dev') {
             steps {
-                script {
-                    deploy("DEV")
-                }
+                deploy("DEV")
             }
         }
         stage('api-integration-tests-dev') {
             steps {
-                script {
-                    executeAPITests("DEV")
-                }
+                executeAPITests("DEV")
             }
         }
         stage('deploy-stg') {
             steps {
-                script {
-                    deploy("STG")
-                }
+                deploy("STG")
             }
         }
         stage('api-integration-tests-stg') {
             steps {
-                script {
-                    executeAPITests("STG")
-                }
+                executeAPITests("STG")
             }
         }
         stage('deploy-prd') {
             steps {
-                script {
-                    deploy("PRD")
-                }
+                deploy("PRD")
             }
         }
         stage('api-integration-tests-prd') {
             steps {
-                script {
-                    executeAPITests("PRD")
-                }
+                executeAPITests("PRD")
             }
         }
        
