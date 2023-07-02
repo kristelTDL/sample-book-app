@@ -48,7 +48,7 @@ pipeline {
 def buildDockerImage() {
     echo "Building Docker image..."
     // build docker image
-    sh 'docker build -t kristelj/sample-book-app:latest .'
+    sh 'docker build --no-cache -t kristelj/sample-book-app:latest .'
     // push image to Docker Hub
     sh 'docker push kristelj/sample-book-app:latest'
 }
