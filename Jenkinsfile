@@ -1,10 +1,11 @@
 pipeline {
     agent any
-
     stages {
         stage('build-docker-image') {
             steps {
-                echo 'Building Docker image...'
+                scripts {
+                    docker-build()
+                }
             }
         }
         stage('unit-tests') {
@@ -47,13 +48,10 @@ pipeline {
     }
 }
 
-/*
-Build of application
-Unit test execution
-Build deployment in “DEV” environment
-Test execution against DEV environment
-Build deployment in “STG” environment
-Test execution against STG environment
-Build deployment in “PRD” environment
-Test execution against PRD environment
-*/
+// function for building the docker image
+def docker-build () {
+    echo 'Building Docker image...'
+}
+// function to optimize deployment
+
+// function to optimize api testing
