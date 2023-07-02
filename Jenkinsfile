@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('build-docker-image') {
             steps {
-                scripts {
-                    buildDockerImage()
-                }
+                
+                buildDockerImage()
+                
             }
         }
         stage('unit-tests') {
@@ -64,20 +64,20 @@ pipeline {
 
 // function for building the docker image
 def buildDockerImage() {
-    print "Building Docker image..."
+    echo "Building Docker image..."
 }
 
 // function for unit tests
 def executeUnitTests() {
-    print "Running unit tests for node application in Docker container..."
+    echo "Running unit tests for node application in Docker container..."
 }
 
 // function to optimize deployment
 def deploy(String env) {
-    print "Deployment triggered on ${env} environment..."
+    echo "Deployment triggered on ${env} environment..."
 }
 
 // function to optimize api testing
 def executeAPITests(String env) {
-    print "API integration tests triggered on ${env} environment"
+    echo "API integration tests triggered on ${env} environment"
 }
