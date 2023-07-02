@@ -2,46 +2,47 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('build-docker-image') {
             steps {
-                echo 'Application is being built'
+                echo 'Building Docker image...'
             }
         }
-        stage('Unit Tests') {
+        stage('unit-tests') {
             steps {
-                echo 'Unit Tests are being executed'
+                echo 'Running unit tests for node application in Docker container...'
             }
         }
-        stage('Deploy to DEV environment') {
+        stage('deploy-dev') {
             steps {
-                echo 'Application deploying to DEV environment'
+                echo 'Deployment triggered on DEV environment...'
             }
         }
-        stage('Testing DEV environment') {
+        stage('api-integration-tests-dev') {
             steps {
-                echo 'Application is being tested on DEV environment'
+                echo 'API integration tests triggered on DEV environment'
             }
         }
-        stage('Deploy to STG environment') {
+        stage('deploy-stg') {
             steps {
-                echo 'Application deploying to STG environment'
+                echo 'Deployment triggered on STG environment...'
             }
         }
-        stage('Testing STG environment') {
+        stage('api-integration-tests-stg') {
             steps {
-                echo 'Application is being tested on STG environment'
+                echo 'API integration tests triggered on STG environment'
             }
         }
-        stage('Deploy to PRD environment') {
+        stage('deploy-prd') {
             steps {
-                echo 'Application deploying to PRD environment'
+                echo 'Deployment triggered on PRD environment...'
             }
         }
-        stage('Testing PRD environment') {
+        stage('api-integration-tests-prd') {
             steps {
-                echo 'Application is being tested on PRD environment'
+                echo 'API integration tests triggered on PRD environment'
             }
         }
+       
         
     }
 }
