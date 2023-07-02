@@ -41,14 +41,13 @@ pipeline {
                 executeAPITests("PRD")
             }
         }
-       
-        
     }
 }
 
 // function for building the docker image
 def buildDockerImage() {
     echo "Building Docker image..."
+    sh 'ls'
 }
 
 // function for unit tests
