@@ -49,7 +49,7 @@ pipeline {
 }
 
 // function for building the docker image
-def docker-build () {
+def docker-build() {
     echo 'Building Docker image...'
 }
 // function to optimize deployment
