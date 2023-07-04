@@ -64,4 +64,6 @@ def deploy(String env) {
 // function to optimize api testing
 def executeAPITests(String env) {
     echo "API integration tests triggered on ${env} environment"
+    git branch: 'main', poll: false, url: 'https://github.com/kristelTDL/course-js-api-framework.git'
+    sh "ls"
 }
