@@ -58,7 +58,6 @@ def deploy(String env) {
     echo "Deployment triggered on ${env} environment..."
     sh "docker-compose-v1 down"
     sh "docker-compose-v1 up -d sample-book-app-${env}"
-    sh "docker-compose-v1 down"
 }
 
 // function to optimize api testing
