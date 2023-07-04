@@ -7,6 +7,7 @@ WORKDIR /app
 # specify the name of the file + how it should be called (for example same name) AKA source + destination
 COPY package.json package.json
 COPY index.js index.js
+COPY index.test.js index.test.js
 
 RUN npm install
 
