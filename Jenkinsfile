@@ -56,6 +56,7 @@ def buildDockerImage() {
 // function for unit tests
 def executeUnitTests() {
     echo "Running unit tests for node application in Docker container..."
+    sh 'docker pull kristelj/sample-book-app:latest'
 }
 
 // function to optimize deployment
