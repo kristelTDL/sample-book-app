@@ -56,7 +56,7 @@ def buildDockerImage() {
 // function to optimize deployment
 def deploy(String env) {
     echo "Deployment triggered on ${env} environment..."
-    sh "docker-compose-v1 up sample-book-app-${env}"
+    sh "docker-compose-v1 up -d sample-book-app-${env}"
 }
 
 // function to optimize api testing
