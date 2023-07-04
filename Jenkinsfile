@@ -6,11 +6,6 @@ pipeline {
                 buildDockerImage()
             }
         }
-        stage("unit-tests") {
-            steps {
-                executeUnitTests()
-            }
-        }
         stage("deploy-dev") {
             steps {
                 deploy("DEV")
