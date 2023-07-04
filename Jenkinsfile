@@ -8,7 +8,7 @@ pipeline {
         }
         stage("deploy-dev") {
             steps {
-                deploy("DEV")
+                deploy("dev")
             }
         }
         stage("api-integration-tests-dev") {
@@ -18,7 +18,7 @@ pipeline {
         }
         stage("deploy-stg") {
             steps {
-                deploy("STG")
+                deploy("stg")
             }
         }
         stage("api-integration-tests-stg") {
@@ -28,7 +28,7 @@ pipeline {
         }
         stage("deploy-prd") {
             steps {
-                deploy("PRD")
+                deploy("prd")
             }
         }
         stage("api-integration-tests-prd") {
@@ -56,6 +56,7 @@ def buildDockerImage() {
 // function to optimize deployment
 def deploy(String env) {
     echo "Deployment triggered on ${env} environment..."
+    sh "docker-compose-v1 up sample-book-app-${env}"
 }
 
 // function to optimize api testing
