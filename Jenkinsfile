@@ -55,6 +55,7 @@ def buildDockerImage() {
 
 // function to optimize deployment
 def deploy(String env) {
+    //git branch: 'main', poll: false, url 'https://github.com/kristelTDL/sample-book-app.git'
     echo "Deployment triggered on ${env} environment..."
     sh "docker-compose-v1 stop sample-book-app-${env}"
     sh "docker-compose-v1 rm sample-book-app-${env}"
@@ -64,6 +65,6 @@ def deploy(String env) {
 // function to optimize api testing
 def executeAPITests(String env) {
     echo "API integration tests triggered on ${env} environment"
-    git branch: 'main', poll: false, url: 'https://github.com/kristelTDL/course-js-api-framework.git'
-    sh "ls"
+    //git branch: 'main', poll: false, url: 'https://github.com/kristelTDL/course-js-api-framework.git'
+    //sh "ls"
 }
