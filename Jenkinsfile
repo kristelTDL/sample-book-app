@@ -70,7 +70,9 @@ def executeAPITests(String env) {
     echo "API integration tests triggered on ${env} environment"
     //git branch: 'main', poll: false, url: 'https://github.com/kristelTDL/course-js-api-framework.git'
     //sh "ls"
-    sh "docker run --network=host --rm kristelj/api-tests run BOOKS BOOKS_${env}"
+    sh "mkdir test-reports"
+    sh "mkdir test-reports/${env}"
+    sh "docker run -v $PWD/test-reports/${env}:/api-test-automation/mochawesome-report/ --network=host --rm kristelj/api-tests run BOOKS BOOKS_${env}"
     // fetch api tests docker image
 
     // execute tests
