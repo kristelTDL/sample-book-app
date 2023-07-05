@@ -46,7 +46,7 @@ pipeline {
 def buildDockerImage() {
     echo "Building Docker image..."
     // build docker image
-    sh "docker build --no-cache -t -d kristelj/sample-book-app ."
+    sh "docker build --no-cache -t kristelj/sample-book-app ."
     // run unit tests in the image
     echo "Running unit tests for node application in Docker container..."
     //sh "docker pull kristelj/sample-book-app:latest"
