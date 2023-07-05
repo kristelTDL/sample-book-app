@@ -3,14 +3,7 @@ pipeline {
     triggers {
         pollSCM('*/1 * * * *')
     }
-    publishHTML (target : [allowMissing: false,
-        alwaysLinkToLastBuild: true,
-        keepAll: true,
-        reportDir: '$WORKSPACE/test-reports/${env}:/api-test-automation/mochawesome-report/',
-        reportFiles: 'mochawesome.html',
-        reportName: 'My Reports',
-        reportTitles: 'The Report']
-    )
+    
     
 
     stages {
