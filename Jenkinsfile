@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    triggers {
+        pollSCM('*/1 * * * *')
+    }
     stages {
         stage("build-docker-image") {
             steps {
@@ -67,4 +70,8 @@ def executeAPITests(String env) {
     echo "API integration tests triggered on ${env} environment"
     //git branch: 'main', poll: false, url: 'https://github.com/kristelTDL/course-js-api-framework.git'
     //sh "ls"
+    sh "docker run --network=host kristelj/api-tests run BOOKS BOOKS_${env}"
+    // fetch api tests docker image
+
+    // execute tests
 }
